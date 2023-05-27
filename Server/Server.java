@@ -9,13 +9,17 @@ import java.util.Scanner;
 
 public class Server {
 
+  /**
+   * @param args
+   * @throws IOException
+   */
   public static void main(String[] args) throws IOException {
     Scanner s = new Scanner(System.in);
     //Usuario inputa qual porta do servidor estará disponivel.
     System.out.print("Digite o número da porta do servidor: ");
-    int portaServer = s.nextInt();
+    int serverDoor = s.nextInt();
 
-    ServerSocket serverSocket = new ServerSocket(portaServer);
+    ServerSocket serverSocket = new ServerSocket(serverDoor);
 
     while (true) {
       Socket socketPlayer = serverSocket.accept();
