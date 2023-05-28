@@ -17,9 +17,9 @@ public class Server {
     Scanner s = new Scanner(System.in);
     //Usuario inputa qual porta do servidor estará disponivel.
     System.out.print("Digite o número da porta do servidor: ");
-    int serverDoor = s.nextInt();
+    int serverPort = s.nextInt();
 
-    ServerSocket serverSocket = new ServerSocket(serverDoor);
+    ServerSocket serverSocket = new ServerSocket(serverPort);
 
     while (true) {
       Socket socketPlayer = serverSocket.accept();
