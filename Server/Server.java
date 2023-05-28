@@ -1,4 +1,4 @@
-package Server;
+package server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,8 +18,8 @@ public class Server {
     //Usuario inputa qual porta do servidor estará disponivel.
     System.out.print("Digite o número da porta do servidor: ");
     int serverPort = s.nextInt();
-
-    ServerSocket serverSocket = new ServerSocket(serverPort);
+    ServerSocket serverSocket;
+    serverSocket = new ServerSocket(serverPort);
 
     while (true) {
       Socket socketPlayer = serverSocket.accept();

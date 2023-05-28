@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 /**
  * Enum representando os modos de jogo disponiveis

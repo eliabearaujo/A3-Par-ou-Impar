@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 /**
  * Enum representando as escolhas disponiveis para os jogadores.
