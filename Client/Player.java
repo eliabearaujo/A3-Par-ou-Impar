@@ -25,13 +25,11 @@ public class Player {
     final String host = s.next();
 
     try {
-      Socket socketP1 = new Socket(host, port);
+      Socket socket = new Socket(host, port);
       Functions functions = new Functions();
 
-      ObjectOutputStream out = new ObjectOutputStream(
-        socketP1.getOutputStream()
-      );
-      ObjectInputStream in = new ObjectInputStream(socketP1.getInputStream());
+      ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+      ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
       Scanner e = new Scanner(System.in);
 
@@ -62,8 +60,8 @@ public class Player {
       System.out.println("Digite um número entre 0 e 5: " + "\n");
       int n = e.nextInt();
 
-      Settings settingsP1 = new Settings(evenOrOdd, n);
-      out.writeObject(settingsP1);
+      Settings settingsPlayer1 = new Settings(evenOrOdd, n);
+      out.writeObject(settingsPlayer1);
 
       System.out.println("P2 escolhendo selecionando número . . .");
 
