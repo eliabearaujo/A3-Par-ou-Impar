@@ -5,8 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-// Classe que inicia o servidor e gerencia a conexão dos players
-
 public class Server {
 
   /**
@@ -15,14 +13,16 @@ public class Server {
    */
   public static void main(String[] args) throws IOException {
     Scanner s = new Scanner(System.in);
-    //Usuario inputa qual porta do servidor estará disponivel.
+
     System.out.print("Digite o número da porta do servidor: ");
-    int serverPort = s.nextInt();
-    ServerSocket serverSocket;
-    serverSocket = new ServerSocket(serverPort);
+    int port = s.nextInt();
+    ServerSocket serverSocket1;
+    serverSocket1 = new ServerSocket(port);
 
     while (true) {
-      Socket socketPlayer = serverSocket.accept();
+      Socket socketjogador1 = serverSocket1.accept();
+      ThreadGame thread = new ThreadGame(socketjogador1);
+      thread.start();
     }
   }
 }
