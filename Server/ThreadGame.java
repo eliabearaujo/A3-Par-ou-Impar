@@ -12,6 +12,9 @@ import util.Settings;
 
 public class ThreadGame extends Thread {
 
+  private static int cpuWins = 0;
+  private static int playerWins = 0;
+
   private final Socket socketJogador1;
 
   static final int Port2 = 8081;
@@ -88,27 +91,41 @@ public class ThreadGame extends Thread {
       settings.getEvenOrOdd() == EvenOrOdd.INVALID_CHOICE ||
       settings.getNumber() < 0 ||
       settings.getNumber() > 5
-    ) return "Opções inválidas"; else if (
-      settings.getEvenOrOdd() == result
-    ) return (
-      "Seu número: " +
-      settings.getNumber() +
-      "\n" +
-      "Número da CPU: " +
-      CPUNumber +
-      "\n" +
-      "Você venceu!"
-    );
+    ) return "Opções inválidas";
 
-    return (
-      "Seu número: " +
-      settings.getNumber() +
-      "\n" +
-      "Número da CPU: " +
-      CPUNumber +
-      "\n" +
-      "A CPU venceu!"
-    );
+    if (settings.getEvenOrOdd() == result) {
+      playerWins++; // Incrementa o placar do jogador
+      return (
+        "Seu número: " +
+        settings.getNumber() +
+        "\n" +
+        "Número da CPU: " +
+        CPUNumber +
+        "\n" +
+        "Você venceu!" +
+        "\n" +
+        "Placar: CPU - " +
+        cpuWins +
+        " | Player1 - " +
+        playerWins
+      );
+    } else {
+      cpuWins++; // Incrementa o placar da CPU
+      return (
+        "Seu número: " +
+        settings.getNumber() +
+        "\n" +
+        "Número da CPU: " +
+        CPUNumber +
+        "\n" +
+        "A CPU venceu!" +
+        "\n" +
+        "Placar: CPU - " +
+        cpuWins +
+        " | Player1 - " +
+        playerWins
+      );
+    }
   }
 
   /**
